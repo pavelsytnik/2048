@@ -2,6 +2,7 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <threads.h>
 #include <time.h>
 
 #include <conio.h>
@@ -307,6 +308,10 @@ int main(void)
         }
 
         if (success) {
+            system("cls");
+            draw_grid(grid, score);
+
+            thrd_sleep(&(struct timespec) { .tv_nsec = 150000000 }, NULL);
             add_random(grid);
 
             system("cls");
